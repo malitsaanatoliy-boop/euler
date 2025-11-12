@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 1000;
+    for (int a = 1; a < x / 3; a++) {
+        for (int b = a + 1; b < (x - a) / 2; b++) {
+            int c = x - a - b;
+            if (a * a + b * b == c * c) {
+                cout << a * b * c << endl;
+                return 0;
+            }
+        }
+    }
+}

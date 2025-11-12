@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int countD(long long x) {
+    int D = 0;
+    for (long long i = 1; i * i <= x; i++) {
+        if (x % i == 0) {
+            D+= 2;          
+            if (i * i == x) D--; 
+        }
+    }
+    return D;
+}
+
+int main() {
+    int n = 1;
+
+    while (true) {
+        long long tri;
+        if (n % 2 == 0)
+            tri = (n / 2) * (n + 1);
+        else
+            tri = n * ((n + 1) / 2);
+
+        if (countD(tri) > 500) {
+            cout << tri << endl; 
+            break;
+        }
+        n++;
+    }
+}

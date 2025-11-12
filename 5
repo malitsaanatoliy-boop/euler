@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long n = 20;
+    while (true) {
+        bool divisible = true;
+        for (int i = 11; i <= 19; i++) {
+            if (n % i != 0) {
+                divisible = false;
+                break;
+            }
+        }
+        if (divisible) {
+            cout << n << endl; 
+            break;
+        }
+        n += 20;
+    }
+}

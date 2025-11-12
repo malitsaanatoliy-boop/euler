@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+bool leapYear(int year) {
+    return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
+}
+
+int main() {
+    int daysInMonth[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int dayOfWeek = 1;
+    int sundayCount = 0;
+
+    for (int year = 1900; year <= 2000; ++year) {
+        for (int month = 0; month < 12; ++month) {
+            if (year >= 1901 && year <= 2000 && dayOfWeek == 0) 
+                sundayCount++;
+
+            int daysThisMonth = daysInMonth[month];
+            if (month == 1 && leapYear(year)) 
+                daysThisMonth = 29;
+
+            dayOfWeek = (dayOfWeek + daysThisMonth) % 7;
+        }
+    }
+
+    cout << sundayCount << endl;
+    return 0;
+}
