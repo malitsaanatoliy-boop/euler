@@ -111,4 +111,5 @@ int main() {
 
     string sum10 = to_string(sum);
     cout << sum10.substr(0,10) << endl; 
+    return 0;
 }

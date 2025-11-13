@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 int main() {
     int ones = 36;      
     int teens = 70;     
@@ -10,5 +11,6 @@ int main() {
     int hundreds = hundreds_base + ands + one_to_99 * 9; 
 
     int sum = one_to_99 + hundreds + 11; 
-    std::cout << sum << endl; 
+    cout << sum << endl; 
+    return 0;
 }

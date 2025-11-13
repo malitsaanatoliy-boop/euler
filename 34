@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    int f = 1;
+    for (int i = 2; i <= n; ++i)
+        f *= i;
+    return f;
+}
+
+int main() {
+    int fact[10];
+    for (int i = 0; i <= 9; ++i)
+        fact[i] = factorial(i);
+
+    int result = 0;
+    int max = 7 * fact[9];
+
+    for (int n = 10; n <= max; ++n) {
+        int sum = 0, x = n;
+        while (x > 0) {
+            int d = x % 10;
+            sum += fact[d];
+            x /= 10;
+        }
+        if (sum == n)
+            result += n;
+    }
+
+    cout << result << endl;
+    return 0;
+}
