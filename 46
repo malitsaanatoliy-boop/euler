@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool prime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i*i <= n; ++i)
+        if (n % i == 0) return false;
+    return true;
+}
+
+bool isSquare(int n) {
+    int r = (int)sqrt(n);
+    return r*r == n;
+}
+
+int main() {
+    for (int n = 9; ; n += 2) {
+        if (!prime(n)) {
+            bool Goldbach = false;
+            for (int p = 2; p < n; ++p) {
+                if (prime(p)) {
+                    int x = n - p;
+                    if (x % 2 == 0 && isSquare(x / 2)) {
+                        Goldbach = true;
+                        break;
+                    }
+                }
+            }
+            if (!Goldbach) {
+                cout << n << endl;
+                break;
+            }
+        }
+    }
+    return 0;
+}
