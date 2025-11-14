@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int count = 0;
+
+    for (int n = 1; n <= 100; ++n) {//перебор всех 1<=n<=100
+        long double C = 1;  // C(n,0)
+
+        for (int r = 1; r <= n; ++r) {//перебор всех r
+        // C(n,r) = C(n,r-1) * (n-r+1)/r
+            C = C * (n - r + 1) / r;
+            if (C > 1000000) count++;
+        }
+    }
+
+    cout << count << endl;
+    return 0;
+}

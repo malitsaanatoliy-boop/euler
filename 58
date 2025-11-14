@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool prime(long long n) {// функция проверки простого числа
+    if (n < 2) return false;            
+    for (long long i = 2; i*i <= n; ++i)
+        if (n % i == 0) return false;   
+    return true;                        
+}
+int main() {
+    long long last = 1; // последнее число на диагонали 
+    int x = 1;       // сторона спирали 
+    int primesCount = 0;     // кол-во простых чисел на диагоналях
+    int count = 1;      // общее количество чисел на диагоналях 
+
+    while (true) {          // цикл по слоям спирали
+        x += 2;          // сторона каждого нового слоя +2
+        int step = x - 1; // шаг между углами нового слоя
+
+        for (int i = 1; i <= 4; ++i) {// перебираем 4 угла нового слоя
+            last += step;       // число на углу диагонали через расстояние между ними
+            if (prime(last))    //проверка простоты
+                primesCount++;       
+        }
+
+        count += 4;             // +4 новых числа на диагонали
+        if (primesCount * 10 < count) { //проверка (кол-во простых)<10%
+            cout << x << endl;   
+            break;                  
+        }
+    }
+}
