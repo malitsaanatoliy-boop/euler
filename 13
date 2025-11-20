@@ -107,6 +107,7 @@ int main() {
     };
 
     long long sum = 0;
+    //суммирование первых 12 цифр чисел
     for (string s : nums) sum += stoll(s.substr(0,12)); 
 
     string sum10 = to_string(sum);

@@ -3,16 +3,17 @@
 using namespace std;
 
 int main() {
-    long long x = 40756;
+    long long x = 40756;//данное в задаче число +1
 
     while (true) {
-        double t = (-1 + sqrt(1 + 8.0*x)) / 2;  
-        double p = (1 + sqrt(1 + 24.0*x)) / 6;    
-        double h = (1 + sqrt(1 + 8.0*x)) / 4;     
+        double t = (-1 + sqrt(1 + 8.0*x)) / 2;//треугольное ли
+        double p = (1 + sqrt(1 + 24.0*x)) / 6;//пятиугольное ли
+        double h = (1 + sqrt(1 + 8.0*x)) / 4;//шестиугольное ли   
         if ((t == (long long)t) && (p == (long long)p) && (h == (long long)h)) {
+            //еслм да то выводим 
             cout << x << endl;
             break;
-        }
+        }//если нет то проверяем числа больше 40756
         x++;
     }
 

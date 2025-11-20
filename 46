@@ -1,33 +1,37 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
+//проверка на простоту
 bool prime(int n) {
     if (n < 2) return false;
     for (int i = 2; i*i <= n; ++i)
         if (n % i == 0) return false;
     return true;
 }
-
+//проверка на квадратность
 bool isSquare(int n) {
     int r = (int)sqrt(n);
     return r*r == n;
 }
 
 int main() {
+    //проверка нечетных чисел
     for (int n = 9; ; n += 2) {
+    //если оно не простое
         if (!prime(n)) {
             bool Goldbach = false;
             for (int p = 2; p < n; ++p) {
+                //проверка на простоту
                 if (prime(p)) {
                     int x = n - p;
+                    //проверяем удвоенный квадрат
                     if (x % 2 == 0 && isSquare(x / 2)) {
                         Goldbach = true;
-                        break;
+                        break;//если да то ищем дальше
                     }
                 }
             }
-            if (!Goldbach) {
+            if (!Goldbach) {//если нашли число что не подходит выводим
                 cout << n << endl;
                 break;
             }

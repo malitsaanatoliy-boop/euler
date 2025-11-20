@@ -2,12 +2,13 @@
 #include <cmath>
 #include <string>
 using namespace std;
+//проверка на простоту
 bool prime(int n) {
     if (n < 2) return false;
     for (int i = 2; i <= sqrt(n); i++)
         if (n % i == 0) return false;
     return true;
-}
+}//проверяем на простоту после выбрасывание слева
 bool left(int n) {
     string s = to_string(n);
     while (s.size() > 0) {
@@ -16,7 +17,7 @@ bool left(int n) {
     }
     return true;
 }
-
+//проверяем на простоту после выбрасывание справа
 bool right(int n) {
     string s = to_string(n);
     while (s.size() > 0) {

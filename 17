@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int ones = 36;      
-    int teens = 70;     
-    int tens = 46;      
-    int one_to_99 = ones + teens + tens*10 + ones*8; 
+    int ones = 36;  // буквы для 1..9    
+    int teens = 70; // буквы для 10..19    
+    int tens = 46;  // буквы для 20,30,...,90    
+    int one_to_99 = ones + teens + tens*10 + ones*8; //сумма букв от 1 до 99
 
-    int hundreds_base = (ones + 9*7) * 100;
-    int ands = 99 * 3 * 9;                  
-    int hundreds = hundreds_base + ands + one_to_99 * 9; 
+    int hundreds_base = (ones + 9*7) * 100;//hundred
+    int ands = 99 * 3 * 9;//and                  
+    int hundreds = hundreds_base + ands + one_to_99 * 9; //буквы для чисел 1..99 внутри каждой сотни
 
-    int sum = one_to_99 + hundreds + 11; 
+    int sum = one_to_99 + hundreds + 11; //все
     cout << sum << endl; 
     return 0;
 }

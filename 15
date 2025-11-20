@@ -4,6 +4,7 @@ using namespace std;
 int main() {
     long long x = 1;
     for (int i = 1; i <= 20; ++i) {
+        // x = 40! / (20! * 20!) = количество маршрутов
         x = x * (20 + i) / i; 
     }
     cout << x << endl; 

@@ -3,20 +3,22 @@
 using namespace std;
 
 int main() {
-    long double logs[10000];
-    int count = 0;
+    long double logs[10000];//массив для заполнения уникальными числами
+    int count = 0;//кол-во оных
 
     for (int a = 2; a <= 100; ++a) {
         long double loga = log(a);
+        //вычисление логарифмов для заполнения
         for (int b = 2; b <= 100; ++b) {
             long double x = b * loga;
+            //проверка на дубликаты
             bool exists = false;
             for (int i = 0; i < count; ++i) {
-                if (fabs(logs[i] - x) < 1e-12) {
+                if (fabs(logs[i] - x) < 1e-12) {//если разница по модулю проверяемых чисел < 1e-12 то считаем их равными
                     exists = true;
                     break;
                 }
-            }
+            }//если уникальное то записываем в сумму
             if (!exists) logs[count++] = x;
         }
     }

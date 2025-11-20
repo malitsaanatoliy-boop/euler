@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//длина последовательности Коллатца для числа
 long long collatz(long long n) {
     long long count = 1;
     while (n != 1) {
@@ -10,10 +10,9 @@ long long collatz(long long n) {
     }
     return count;
 }
-
 int main() {
     long long max = 0, num = 0;
-
+// длина последовательности для числа i
     for (long long i = 1; i < 1000000; i++) {
         long long x = collatz(i);
         if (x > max) {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
+//проверка на простоту числа
 bool prime(int n) {
     if (n < 2) return false;
     for (int i = 2; i*i <= n; ++i)
@@ -10,13 +10,14 @@ bool prime(int n) {
 }
 
 int main() {
-    int maxSum = 0;
-    int maxCount = 0;
-
+    int maxSum = 0;//самая длинная сумма последовательных простых чисел
+    int maxCount = 0;//кол-во последовательных чисел
+//проверка чисел <10^6
     for (int x = 2; x < 1000000; ++x) {
         if (prime(x)) {
-            long long sum = 0;
-            int count = 0;
+            long long sum = 0;//временная сумма
+            int count = 0;//временное кол-во
+            //формируем последовательность простых чисел
             for (int n = x; n < 1000000; ++n) {
                 if (prime(n)) {
                     sum += n;

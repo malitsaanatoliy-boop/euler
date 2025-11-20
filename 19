@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//проверка на високосность
 bool leapYear(int year) {
     return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
 }
@@ -14,11 +14,10 @@ int main() {
         for (int month = 0; month < 12; ++month) {
             if (year >= 1901 && year <= 2000 && dayOfWeek == 0) 
                 sundayCount++;
-
             int daysThisMonth = daysInMonth[month];
-            if (month == 1 && leapYear(year)) 
+            if (month == 1 && leapYear(year)) // если февраль и год високосный устанавливаем 29 дней
                 daysThisMonth = 29;
-
+             // переходим к первому дню следующего месяца
             dayOfWeek = (dayOfWeek + daysThisMonth) % 7;
         }
     }

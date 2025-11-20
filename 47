@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//функция рассчета кол-ва различных простых делителей
 int primeD(int n) {
     int count = 0;
     for (int i = 2; i*i <= n; ++i) {
@@ -14,16 +14,18 @@ int primeD(int n) {
 }
 
 int main() {
-    int num = 0;
-    int n = 2;
+    int num = 0;//счетчик
+    int n = 2;//проверяем начиная с 2
     while (true) {
+        //если в n ровно 4 различных простых делителя
         if (primeD(n) == 4) {
-            num++;
+            num++;//+1 к последовательности
+            //если 4 подряд числа то выводим первое из них
             if (num == 4) {
                 cout << n - 3 << endl;
                 break;
             }
-        } else num = 0;
+        } else num = 0;//если нет то обнуляем и проверяем следующее
         n++;
     }
     return 0;
